@@ -1,30 +1,44 @@
 export const coins = [
   {
-    name: "Bitcoin",
-    start: "Bitcoin est un réseau de paiement novateur et une nouvelle forme d'argent.",
-    tags: ["BTC", "btc", "bit", "bitcoin"],
+    title: "Bitcoin",
+    text: "Bitcoin est un réseau de paiement novateur et une nouvelle forme d'argent.",
+    button: "bitcoin",
+  },
+  {
+    title: "ETHEREUM",
+    text: "Bitcoin est un réseau de paiement novateur et une nouvelle forme d'argent.",
+    button: "ethereum",
+  },
+  {
+    title: "BinanceCoin",
+    text: "Bitcoin est un réseau de paiement novateur et une nouvelle forme d'argent.",
+    button: "binancecoin",
+  },
+  {
+    title: "Monero",
+    text: "Bitcoin est un réseau de paiement novateur et une nouvelle forme d'argent.",
+    button: "monero",
   },
 ]
-
-export const allTags = (list) => {
-  /* retourner la liste des tags uniques */
+export const allbutton = (list) => {
+  /* retourner la liste des button uniques */
   let listTotal = []
   for (let element of list) {
-    if ("tags" in element) {
-      listTotal = listTotal.concat(element.tags)
+    if ("button" in element) {
+      listTotal = listTotal.concat(element.button)
     }
   }
-  const listTagsUnique = []
+  const listbuttonUnique = []
   listTotal.forEach((el) => {
-    if (!listTagsUnique.includes(el)) {
-      //listTagsUnique = listTagsUnique.concat([el])
-      listTagsUnique.push(el)
+    if (!listbuttonUnique.includes(el)) {
+      //listbuttonUnique = listbuttonUnique.concat([el])
+      listbuttonUnique.push(el)
     }
   })
-  return listTagsUnique
+  return listbuttonUnique
 }
 
-export const uniqueTags = allTags(coins)
+export const uniquebutton = allbutton(coins)
 
 
 

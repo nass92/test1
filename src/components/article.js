@@ -1,17 +1,21 @@
 import React from "react"
-import ArticleName from "./ArticleName"
-import ArticleStart from "./ArticleStart"
+import ListArticle from "./articleList"
+import { coins } from "../listcoin"
 
-const Article = ({ name, start, tags }) => {
-  return (
-    <li className="col-lg-3 col-md-4 col-sm-6">
-      <div className="card p-3 mb-4 shadow">
+const BlockArticle = ({ crypto }) => {
+  const tab = []
+  if (crypto === ' ') {
+    for (let i = 0; i < coins.length; i++) {
+      tab.push(<ListArticle title={coins[i].title} text={coins[i].text} button={coins[i].button} />)
+    }
+  } else {
+    for (let i = 0; i < coins.length; i++) {
+      if (coins[i].button.startsWith(crypto))
+        tab.push(<ListArticle title={coins[i].title} text={coins[i].text} button={coins[i].button} />)
+    }
+  }
 
-        <ArticleName>{name}</ArticleName>
-        <ArticleStart start={start} />
-  )
-      </div>
-    </li>
-  )
+
+  return (tab.map(a => a))
 }
-export default Article
+export default BlockArticle
