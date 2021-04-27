@@ -1,12 +1,16 @@
-const ListArticle = ({ title, text, button }) => {
+
+const handleLinkButton = (e) => {
+  console.log(e.target.value)
+}
+const ListArticle = ({ title, text, liens }) => {
+
   return (
     <li className="col-lg-3 col-md-4 col-sm-6 list-group">
-      <div className="card p-3 mb-4 shadow">
+      <div className="card p-4 mb-4 shadow">
 
-        <h2>{title} </h2>
+        <h2 className='text-center'>{title} </h2>
         <p>{text}</p>
-        <button type="button" className='btn btn-sm me-2 mb-2 bg-dark text-white' value={button} >lire plus </button>
-
+        <a href={liens}><button type="button" className='btn btn-sm me-2 mb-2 bg-dark text-white' value={liens} onClick={handleLinkButton} >lire plus </button></a>
       </div>
     </li>
   )
